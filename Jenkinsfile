@@ -4,18 +4,16 @@ pipeline {
             maven 'MAVEN'
             jdk 'JDK17'
     }
-
     stages {
         stage('Checkout SCM') {
             steps {
-                    echo 'Checkout scm...'
-                    checkout scm
+                checkout scm
             }
         }
         stage ('Initialize') {
             steps {
                 sh '''
-                   echo "PATH = ${PATH}"
+                   echo "JAVA_HOME = ${PATH}"
                    echo "M2_HOME = ${M2_HOME}"
                    '''
            }

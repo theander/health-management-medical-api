@@ -13,14 +13,14 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
-                   echo "JAVA_HOME = ${PATH}"
+                   echo "PATH = ${PATH}"
                    echo "M2_HOME = ${M2_HOME}"
                    '''
            }
         }
-        stage('Jenkins trigger') {
+        stage('Slack Notification') {
             steps {
-                echo 'Github web hook'
+                slackSend(channel: "jenkinsbuild", message: "Here is the primary message")
             }
         }        
         stage('Build') {

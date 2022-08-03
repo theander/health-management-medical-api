@@ -1,2 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jwt
+    username: user
+    password: mysecretpassword
+    driverClassName: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    user:
+      name: user
+      password: user
 server:
-  port: 8090
+  port: 8180

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -16,6 +17,5 @@ public class Medical {
     private Long id;
     private String evolution;
     private String recipe;
-    @ManyToOne
-    private User user;
+    private Long userId;
 }

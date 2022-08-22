@@ -3,6 +3,7 @@ package com.healthmanagement.medicalapi.service;
 import com.healthmanagement.medicalapi.model.Medical;
 import com.healthmanagement.medicalapi.model.User;
 import com.healthmanagement.medicalapi.repository.MedicalRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -32,6 +33,7 @@ public class MedicalService implements IMedicalService {
     }
 
     @Override
+    @Cacheable
     public Medical getMedical(User user) {
         return null;
     }

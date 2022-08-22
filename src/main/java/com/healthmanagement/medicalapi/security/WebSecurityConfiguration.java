@@ -20,6 +20,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.authorizeHttpRequests().antMatchers(HttpMethod.GET,"/api/**").permitAll();
+        http.authorizeHttpRequests().antMatchers(HttpMethod.GET,"/v3/**").permitAll();
+        http.authorizeHttpRequests().antMatchers(HttpMethod.GET,"/swagger-ui/**").permitAll();
         http.authorizeHttpRequests().antMatchers(HttpMethod.GET,"/api/**").hasAnyAuthority("ROLE_MEDICAL");
         http.authorizeHttpRequests().anyRequest().authenticated();
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

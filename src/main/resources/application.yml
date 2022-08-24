@@ -13,10 +13,16 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   cache:
     type: redis
+    redis:
+      time-to-live: 360000
+      key-prefix: medical, abs
   redis:
     password: ${REDIS_PASSOWORD}
     host: ${REDIS_HOST}
     port: ${REDIS_PORT}
 
+host:
+  userclient:
+    apiHost: http://health-management-user-api.herokuapp.com
 server:
   port: 8280

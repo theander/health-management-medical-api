@@ -30,10 +30,7 @@ public class MedicalApiApplication {
             user.setId(123l);
             user.setFullName("User Name");
 
-
-
-
-            medicalService.createMedical(user, "No fever", "paracetamol");
+            medicalService.createMedical(user.getId(), "No fever", "paracetamol");
         };
     }
 

@@ -3,6 +3,7 @@ package com.healthmanagement.medicalapi.service;
 import com.healthmanagement.medicalapi.model.Medical;
 import com.healthmanagement.medicalapi.model.User;
 import com.healthmanagement.medicalapi.repository.MedicalRepository;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -22,25 +23,26 @@ public class MedicalService implements IMedicalService {
     }
 
     @Override
-    public Medical createMedical(User user, String recipe, String evolution) {
-
-        return medicalRepository.save(new Medical(null, evolution, recipe, user.getId()));
+    public Medical createMedical(Long userId, String recipe, String evolution) {
+        return medicalRepository.save(new Medical(null, evolution, recipe, userId));
     }
 
     @Override
-    public Medical updateMedical(String recipe, String evolution) {
-        return null;
+    @CachePut("medical")
+    public Medical updateMedical(Long userId, String recipe, String evolution) {
+        return medicalRepository.save(Medical.builder()
+                .userId(userId)
+                .evolution(evolution)
+                .recipe(recipe)
+                .build());
     }
 
     @Override
-    @Cacheable
-    public Medical getMedical(User user) {
-        return null;
+    @Cacheable("medical")
+    public Medical getMedical(Long userId) {
+        return medicalRepository.findMedicalByUserId(userId);
     }
-
-
     @Override
     public void generateExams(String examName) {
-
     }
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @NoArgsConstructor
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Data
 @Builder
 @Entity
-public class Medical {
+public class Medical implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

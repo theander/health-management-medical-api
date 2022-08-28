@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-@ConfigurationProperties(prefix = "host.userclient",ignoreUnknownFields = true)
+@ConfigurationProperties(prefix = "host.userclient", ignoreUnknownFields = true)
 public class UserClient {
-    private final String USER_PATH ="/api/users/";
+    private final String USER_PATH = "/api/users/";
     private String apiHost;
     private RestTemplate restTemplate;
 
@@ -17,8 +17,8 @@ public class UserClient {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    public UserDto getUserById(Long id){
-        return restTemplate.getForObject(apiHost+USER_PATH+String.valueOf(id), UserDto.class);
+    public UserDto getUserById(Long id) {
+        return restTemplate.getForObject(apiHost + USER_PATH + String.valueOf(id), UserDto.class);
     }
 
     public void setApiHost(String apiHost) {

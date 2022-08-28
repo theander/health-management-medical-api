@@ -23,16 +23,16 @@ public class MedicalApiApplication {
         SpringApplication.run(MedicalApiApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner run(MedicalService medicalService) {
-        return args -> {
-            User user = new User();
-            user.setId(123l);
-            user.setFullName("User Name");
-
-            medicalService.createMedical(user.getId(), "No fever", "paracetamol");
-        };
-    }
+//    @Bean
+//    CommandLineRunner run(MedicalService medicalService) {
+//        return args -> {
+//            User user = new User();
+//            user.setId(123l);
+//            user.setFullName("User Name");
+//
+//            medicalService.createMedical(user.getId(), "No fever", "paracetamol");
+//        };
+//    }
 
     ;
 }

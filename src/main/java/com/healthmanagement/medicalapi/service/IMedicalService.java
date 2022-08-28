@@ -2,12 +2,14 @@ package com.healthmanagement.medicalapi.service;
 
 import com.healthmanagement.medicalapi.model.Medical;
 
+import java.util.List;
+
 public interface IMedicalService {
-    Medical createMedical(Long userId, String recipe, String evolution);
+    Medical createMedical(Medical medical);
 
-    Medical updateMedical(Long userId, String recipe, String evolution);
+    Medical updateMedical(Medical medical);
 
-    Medical getMedical(Long userId);
+    List<Medical> getMedical(Long userId);
 
     void generateExams(String examName);
 

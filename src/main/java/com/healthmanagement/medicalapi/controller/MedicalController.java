@@ -5,8 +5,6 @@ import com.healthmanagement.medicalapi.model.User;
 import com.healthmanagement.medicalapi.service.MedicalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,12 +31,12 @@ public class MedicalController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-
     public List<Medical> getMedical(@RequestBody User user) {
         return medicalService.getMedical(user.getId());
     }
 
     @GetMapping("/status")
+    @ResponseStatus(HttpStatus.OK)
     public String status() {
         return "Medical Api";
     }

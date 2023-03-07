@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="medical-api" />
-        <module name="health-management-medical-api" />
+        <module name="service" />
+        <module name="api" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="health-management-medical-api" options="-parameters" />
+      <module name="api" options="" />
+      <module name="health-management-medical-api" options="" />
       <module name="medical-api" options="-parameters" />
+      <module name="service" options="" />
     </option>
   </component>
 </project>

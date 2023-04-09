@@ -7,5 +7,5 @@ RUN mvn -f /home/app/pom.xml clean package
 # Package stage
 FROM openjdk:17-alpine
 COPY --from=build /home/app/target/*.jar /usr/local/lib/api.jar
-EXPOSE 8080
+EXPOSE 8280
 ENTRYPOINT ["java","-jar","/usr/local/lib/api.jar"]

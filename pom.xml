@@ -2,9 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.health-management</groupId>
-	<artifactId>medical-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+
 <!--	<packaging>pom</packaging>-->
 		<parent>
 			<groupId>org.springframework.boot</groupId>
@@ -12,141 +10,25 @@
 			<version>2.7.7</version>
 			<relativePath/>
 		</parent>
+	<groupId>com.health-management</groupId>
+	<artifactId>medical-api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>medical-api</name>
 	<description>Medical Api</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-boot-version>2.7.7</spring-boot-version>
-		<springdoc.version>1.6.9</springdoc.version>
-		<java-jwt.version>4.0.0</java-jwt.version>
-		<junit.version>5.9.2</junit.version>
-		<mockito.version>4.8.1</mockito.version>
-		<openapi.version>0.0.1-SNAPSHOT</openapi.version>
-		<javax-servlet.version>4.0.1</javax-servlet.version>
-		<compiler.version>3.0.4</compiler.version>
-		<lombok.version>1.18.26</lombok.version>
 	</properties>
 
-<!--	<dependencyManagement>-->
-<!--	<dependencies>-->
-<!--		<dependency>-->
-<!--			<groupId>com.healthmanagementapi</groupId>-->
-<!--			<artifactId>api</artifactId>-->
-<!--			<version>${openapi.version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--			<version>${spring-boot-version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-web</artifactId>-->
-<!--			<version>${spring-boot-version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springdoc</groupId>-->
-<!--			<artifactId>springdoc-openapi-ui</artifactId>-->
-<!--			<version>${springdoc.version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.postgresql</groupId>-->
-<!--			<artifactId>postgresql</artifactId>-->
-<!--			<version>42.4.2</version>-->
-<!--			<scope>runtime</scope>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.projectlombok</groupId>-->
-<!--			<artifactId>lombok</artifactId>-->
-<!--			<version>${lombok.version}</version>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-test</artifactId>-->
-<!--			<version>${spring-boot-version}</version>-->
-<!--			<scope>test</scope>-->
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>junit</groupId>-->
-<!--					<artifactId>junit</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.junit.jupiter</groupId>-->
-<!--			<artifactId>junit-jupiter-api</artifactId>-->
-<!--			<version>${junit.version}</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.junit.jupiter</groupId>-->
-<!--			<artifactId>junit-jupiter-engine</artifactId>-->
-<!--			<version>${junit.version}</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.mockito</groupId>-->
-<!--			<artifactId>mockito-junit-jupiter</artifactId>-->
-<!--			<version>${mockito.version}</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.auth0</groupId>-->
-<!--			<artifactId>java-jwt</artifactId>-->
-<!--			<version>${java-jwt.version}</version>-->
-<!--		</dependency>-->
-<!--			<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-redis</artifactId>-->
-<!--			<version>${spring-boot-version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--			<version>${spring-boot-version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springdoc</groupId>-->
-<!--			<artifactId>springdoc-openapi-ui</artifactId>-->
-<!--			<version>${springdoc.version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springdoc</groupId>-->
-<!--			<artifactId>springdoc-openapi-webflux-ui</artifactId>-->
-<!--			<version>${springdoc.version}</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>mysql</groupId>-->
-<!--			<artifactId>mysql-connector-java</artifactId>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>javax.servlet</groupId>-->
-<!--			<artifactId>javax.servlet-api</artifactId>-->
-<!--			<version>${javax-servlet.version}</version>-->
-<!--		</dependency>-->
-
-
-<!--	</dependencies>-->
-<!--	</dependencyManagement>-->
 	<dependencies>
-		        <dependency>
-		            <groupId>javax.servlet</groupId>
-		            <artifactId>javax.servlet-api</artifactId>
-					<version>${javax-servlet.version}</version>
-		        </dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${spring-boot-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -155,17 +37,15 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>${spring-boot-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.auth0</groupId>
 			<artifactId>java-jwt</artifactId>
-			<version>${java-jwt.version}</version>
+			<version>4.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>${spring-boot-version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -177,19 +57,19 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>${junit.version}</version>
+			<version>5.9.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.version}</version>
+			<version>5.9.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>${mockito.version}</version>
+			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -203,12 +83,10 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${compiler.version}</version>
 				<configuration>
 					<excludes>
 						<exclude>
@@ -219,6 +97,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		</pluginManagement>
 	</build>
 </project>

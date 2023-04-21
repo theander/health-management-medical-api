@@ -1,4 +1,4 @@
 # health-management-medical-api
-Docs API
-v3/api-docs 
-swagger-ui/index.html
+Swagger API
+
+http://localhost:8280/swagger-ui/index.html

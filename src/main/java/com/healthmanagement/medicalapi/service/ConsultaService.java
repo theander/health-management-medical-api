@@ -14,21 +14,29 @@ import java.util.Optional;
 @Transactional
 @Service
 public class ConsultaService {
-
     private final ConsultaRepository consultaRepository;
 
 
-    public Consulta consultaById(Long id){
+    public Consulta consultaById(Long id) {
         Optional<Consulta> consultaById = consultaRepository.findById(id);
-        if(consultaById.isPresent()){
+        if (consultaById.isPresent()) {
             return consultaById.get();
         }
         return null;
     }
-    public List<Consulta> consultas(){
-        return consultaRepository.findAll();
+
+    public List<Consulta> consultas(String username) {
+        if (username == null) {
+            username = "";
+        }
+
+        return consultaRepository.findAllByUsernameEquals(username);
     }
-    public Consulta createConsulta(Consulta consulta){
+
+    public Consulta createConsulta(Consulta consulta) {
+        if (consulta.getConsultaStatusEnum() == null) {
+            consulta.setConsultaStatusEnum(ConsultaStatusEnum.OPEN);
+        }
         return consultaRepository.save(consulta);
     }
 
@@ -37,7 +45,6 @@ public class ConsultaService {
         consulta.setConsultaStatusEnum(ConsultaStatusEnum.CLOSED);
         return consultaRepository.save(consulta);
     }
-
 
 
 }

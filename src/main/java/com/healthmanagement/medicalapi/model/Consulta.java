@@ -21,6 +21,7 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
+    private String medico;
     private String description;
     private ConsultaStatusEnum consultaStatusEnum;
     @Column(name = "data_cadastro",updatable = false)

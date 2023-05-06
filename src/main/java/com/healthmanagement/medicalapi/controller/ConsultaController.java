@@ -20,15 +20,13 @@ public class ConsultaController {
 
     @PostMapping("/consulta")
     public ResponseEntity<Consulta> create(@RequestBody Consulta consulta) {
-
         Consulta savedConsulta = consultaService.createConsulta(consulta);
         return new ResponseEntity<>(savedConsulta, HttpStatus.CREATED);
     }
 
     @GetMapping("/consulta")
-    public ResponseEntity<List<Consulta>> getAll(@RequestParam(value = "username") String username) {
-
-        List<Consulta> consultas = consultaService.consultas(username);
+    public ResponseEntity<List<Consulta>> getAll(@RequestParam(value = "username",required = false) String username, @RequestParam(value = "medico",required = false) String medico) {
+        List<Consulta> consultas = consultaService.consultas(username,medico);
         return new ResponseEntity<List<Consulta>>(consultas, HttpStatus.OK);
     }
 

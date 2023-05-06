@@ -25,12 +25,14 @@ public class ConsultaService {
         return null;
     }
 
-    public List<Consulta> consultas(String username) {
+    public List<Consulta> consultas(String username,String medico) {
         if (username == null) {
             username = "";
         }
-
-        return consultaRepository.findAllByUsernameEquals(username);
+        if (medico == null) {
+            medico = "";
+        }
+        return consultaRepository.findAllByUsernameEqualsOrMedicoEquals(username,medico);
     }
 
     public Consulta createConsulta(Consulta consulta) {

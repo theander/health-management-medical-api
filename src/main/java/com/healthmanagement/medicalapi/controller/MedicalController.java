@@ -37,12 +37,5 @@ public class MedicalController {
         return medicalService.getMedical(user.getId());
     }
 
-    @GetMapping("/status")
-    @ResponseStatus(HttpStatus.OK)
-    public String status() {
-        return "Medical Api";
-    }
-
-
 
 }

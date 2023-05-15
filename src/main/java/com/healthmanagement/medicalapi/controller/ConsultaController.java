@@ -25,8 +25,8 @@ public class ConsultaController {
     }
 
     @GetMapping("/consulta")
-    public ResponseEntity<List<Consulta>> getAll(@RequestParam(value = "username",required = false) String username, @RequestParam(value = "medico",required = false) String medico) {
-        List<Consulta> consultas = consultaService.consultas(username,medico);
+    public ResponseEntity<List<Consulta>> getAll(@RequestParam(value = "username",required = false) String username, @RequestParam(value = "medico",required = false) String medico,@RequestParam(value = "status",required = false) String status) {
+        List<Consulta> consultas = consultaService.consultas(username,medico,status);
         return new ResponseEntity<List<Consulta>>(consultas, HttpStatus.OK);
     }
 
@@ -35,4 +35,5 @@ public class ConsultaController {
         Consulta consulta = consultaService.closeConsulta(id);
         return new ResponseEntity<Consulta>(consulta, HttpStatus.NO_CONTENT);
     }
+
 }

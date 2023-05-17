@@ -32,7 +32,12 @@ public class ConsultaService {
         if (medico == null) {
             medico = "";
         }
-        return consultaRepository.findAllByUsernameEqualsOrMedicoEqualsAndConsultaStatusEnumEquals(username,medico,ConsultaStatusEnum.valueOf(status));
+
+        if (medico.isEmpty()) {
+            return consultaRepository.findAllByUsernameEqualsAndConsultaStatusEnumEquals(username, ConsultaStatusEnum.valueOf(status));
+        }
+        return consultaRepository.findAllByMedicoEqualsAndConsultaStatusEnumEquals(medico, ConsultaStatusEnum.valueOf(status));
+
     }
 
     public Consulta createConsulta(Consulta consulta) {

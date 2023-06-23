@@ -17,8 +17,6 @@ import java.util.List;
 public class MedicalController {
     private final MedicalService medicalService;
 
-
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Medical saveMedical(@RequestBody Medical medical) {
@@ -36,6 +34,5 @@ public class MedicalController {
     public List<Medical> getMedical(@RequestBody User user) {
         return medicalService.getMedical(user.getId());
     }
-
 
 }

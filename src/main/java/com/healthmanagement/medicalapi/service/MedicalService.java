@@ -30,6 +30,4 @@ public class MedicalService {
         return medicalRepository.findMedicalByUserId(userId);
     }
 
-    public void generateExams(String examName) {
-    }
 }

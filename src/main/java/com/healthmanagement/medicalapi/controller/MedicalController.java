@@ -6,9 +6,12 @@ import com.healthmanagement.medicalapi.service.MedicalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -20,7 +23,9 @@ public class MedicalController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Medical saveMedical(@RequestBody Medical medical) {
-        return medicalService.createMedical(medical);
+        medical.setRegisterDate(OffsetDateTime.now());
+        return
+                medicalService.createMedical(medical);
     }
 
     @PutMapping("/list")
@@ -33,6 +38,12 @@ public class MedicalController {
     @ResponseStatus(HttpStatus.OK)
     public List<Medical> getMedical(@RequestBody User user) {
         return medicalService.getMedical(user.getId());
+    }
+
+    @GetMapping("/list/count")
+    public ResponseEntity<Map<Integer, Integer>> countMedical() {
+        final var map = medicalService.countMedicalByMonth();
+        return ResponseEntity.ok().body(map);
     }
 
 }

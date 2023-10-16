@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 
 @NoArgsConstructor
@@ -24,12 +25,5 @@ public class Medical implements Serializable {
     private String evolution;
     private String recipe;
     private Long userId;
-    @Column(name = "data_cadastro",updatable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate creationDate;
-
-    @PrePersist
-    public void prePersiste() {
-        setCreationDate(LocalDate.now());
-    }
+    private OffsetDateTime registerDate;
 }

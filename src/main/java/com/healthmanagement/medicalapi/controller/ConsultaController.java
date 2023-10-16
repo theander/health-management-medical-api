@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -20,6 +22,7 @@ public class ConsultaController {
 
     @PostMapping("/consulta")
     public ResponseEntity<Consulta> create(@RequestBody Consulta consulta) {
+        consulta.setRegisterDate(OffsetDateTime.now());
         Consulta savedConsulta = consultaService.createConsulta(consulta);
         return new ResponseEntity<>(savedConsulta, HttpStatus.CREATED);
     }
@@ -37,6 +40,11 @@ public class ConsultaController {
     public ResponseEntity<Consulta> closeConsulta(@PathVariable(value = "id") Long id) {
         Consulta consulta = consultaService.closeConsulta(id);
         return new ResponseEntity<Consulta>(consulta, HttpStatus.NO_CONTENT);
+    }
+    @GetMapping("/consulta/count")
+    public ResponseEntity<Map<Integer,Integer>> countConsulta() {
+        final var map= consultaService.countConsultaByMonth();
+        return ResponseEntity.ok().body(map);
     }
 
 }

@@ -7,8 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
+import java.time.Month;
+import java.util.*;
+import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Transactional
@@ -53,5 +54,13 @@ public class ConsultaService {
         return consultaRepository.save(consulta);
     }
 
-
+    public Map<Integer,Integer> countConsultaByMonth() {
+        Map<Integer,Integer> map = new HashMap<>();
+        Stream<Month> stream = Arrays.stream(Month.values());
+        stream.forEach(month -> {
+            int o = consultaRepository.countForMonth(month.getValue());
+            map.put(month.getValue(),o);
+        });
+        return map;
+    }
 }

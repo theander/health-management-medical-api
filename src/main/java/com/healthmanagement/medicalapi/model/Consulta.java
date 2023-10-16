@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -24,12 +26,5 @@ public class Consulta implements Serializable {
     private String medico;
     private String description;
     private ConsultaStatusEnum consultaStatusEnum;
-    @Column(name = "data_cadastro",updatable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate creationDate;
-
-    @PrePersist
-    public void prePersiste() {
-        setCreationDate(LocalDate.now());
-    }
+    private OffsetDateTime registerDate;
 }

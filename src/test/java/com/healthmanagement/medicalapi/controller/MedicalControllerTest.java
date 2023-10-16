@@ -97,7 +97,7 @@ class MedicalControllerTest {
     }
 
     private Medical dummyMedical() {
-        return Medical.builder().creationDate(LocalDate.now()).evolution("Sem dores").userId(123l).recipe("Paracetamol").build();
+        return Medical.builder().evolution("Sem dores").userId(123l).recipe("Paracetamol").build();
     }
 
     private User userDummy() {
